@@ -3,8 +3,6 @@
 **Author:** Akhmetzhan Dilnaz  
 **Degree:** Master of Science in Data Science  
 **Institution:** Nazarbayev University  
-**Supervisor:** Lisa Chalaguine  
-
 ---
 
 ## Overview
@@ -25,12 +23,11 @@ The pipeline is divided into two phases:
 │   ├── protocol_preprocessing.ipynb
 │   ├── embeddings_english.ipynb
 │   ├── embeddings_russian.ipynb
-│   └── corpus_validation.ipynb
 │
 ├── Phase II — Data Collection
 │   ├── question_design.ipynb
 │   ├── chatgpt_collection.ipynb
-│   ├── gemini_collection.ipynb
+│   ├── gemini_collection.ipyn.      ← collected manually via web interface
 │   ├── medgemma_collection.ipynb
 │   └── perplexity_collection.ipynb   ← collected manually via web interface
 │
@@ -97,15 +94,6 @@ Queries ChatGPT-4o (GPT-4o, temperature=0) with all 15 questions in both English
 
 ---
 
-#### `gemini_collection.ipynb`
-Queries Gemini-2.5-Flash via the Google GenAI API for all 15 questions × 2 languages.
-
-**Inputs:** `final_questions.json`  
-**Outputs:** `gemini_responses.json` (30 responses)  
-**Requirements:** Google AI API key, CPU runtime
-
----
-
 #### `medgemma_collection.ipynb`
 Queries MedGemma-27B (instruction-tuned, 4-bit quantized via bitsandbytes) locally via HuggingFace Transformers for all 15 questions × 2 languages.
 
@@ -169,7 +157,7 @@ The 84 source protocols are official clinical guidelines published by the Minist
 2. Mount Google Drive in each notebook (first code cell)
 3. Run Phase I notebooks in order: `protocol_preprocessing` → `embeddings_english` → `embeddings_russian` → `corpus_validation`
 4. Run `question_design.ipynb` to produce `final_questions.json`
-5. Run each collection notebook (`chatgpt_collection`, `gemini_collection`, `medgemma_collection`) and add Perplexity responses manually
+5. Run each collection notebook (`chatgpt_collection`, `medgemma_collection`) and add Perplexity, Gemini responses manually
 6. Merge all response files into `responses_raw.json`
 7. Run `chatbot_evaluation.ipynb` **top to bottom** — do not skip cells or restart mid-run
 
@@ -184,7 +172,6 @@ All notebooks install their own dependencies in the first cell via `pip install`
 - `scikit-learn`, `scipy` — clustering and statistical tests
 - `seaborn`, `matplotlib` — visualisation
 - `openai` — ChatGPT-4o API
-- `google-genai` — Gemini API
 - `top2vec` — topic modelling
 - `docling` — PDF parsing (Phase I)
 
