@@ -27,9 +27,9 @@ The pipeline is divided into two phases:
 ├── Phase II — Data Collection
 │   ├── question_design.ipynb
 │   ├── chatgpt_collection.ipynb
-│   ├── gemini_collection.ipyn.      ← collected manually via web interface
+│   ├── gemini_collection    ← collected manually via web interface
 │   ├── medgemma_collection.ipynb
-│   └── perplexity_collection.ipynb   ← collected manually via web interface
+│   └── perplexity_collection   ← collected manually via web interface
 │
 ├── Phase II — Evaluation
 │   └── chatbot_evaluation.ipynb
